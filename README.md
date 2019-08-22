@@ -18,11 +18,17 @@ Front End for Instagram clone (GraphQL + Hooks)
 <p>
 
 - https://reacttraining.com/react-router/web/guides/basic-components
-- `<Route>`: Route matching is done by comparing a <Route>'s path prop to the current location’s pathname. When a <Route> matches it will render its content and when it does not match, it will render null. A <Route> with no path will always match.
-- `<Switch>`: The <Switch> component is used to group <Route>s together. The <Switch> is not required for grouping <Route>s, but it can be quite useful.
+- `<Route>`: Route matching is done by comparing a `<Route>`'s path prop to the current location’s pathname. When a `<Route>` matches it will render its content and when it does not match, it will render null. A `<Route>` with no path will always match.
+- `<Switch>`: The `<Switch>` component is used to group `<Route>`s together. The `<Switch>` is not required for grouping `<Route>`s, but it can be quite useful.
 - Route Component: https://reacttraining.com/react-router/web/api/Route
   - component: A React component to render only when the location matches. It will be rendered with route props. https://reacttraining.com/react-router/web/api/Route/component
   - exact(bool): When true, will only match if the path matches the location.pathname exactly. https://reacttraining.com/react-router/web/api/Route/exact-bool
+
+### HashRouter vs BrowserRouter
+
+- https://stackoverflow.com/questions/51974369/hashrouter-vs-browserrouter
+- `HashRouter`: It uses URL hash, it puts no limitations on supported browsers or web server. Server-side routing is independent from client-side routing. https://reacttraining.com/react-router/web/api/HashRouter
+- `BrowserRouter`: It uses history API, i.e. it's unavailable for legacy browsers (IE 9 and lower and contemporaries). Client-side React application is able to maintain clean routes like example.com/react/route but needs to be backed by web server. https://reacttraining.com/react-router/web/api/BrowserRouter
 
 </p>
 </details>
