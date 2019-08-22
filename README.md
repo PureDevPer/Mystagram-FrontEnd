@@ -42,3 +42,13 @@ Front End for Instagram clone (GraphQL + Hooks)
 
 </p>
 </details>
+
+<details><summary><b>React Fragments</b></summary>
+<p>
+
+https://reactjs.org/docs/fragments.html
+
+- `Fragments`: A common pattern in React is for a component to return multiple elements. Fragments let you group a list of children without adding extra nodes to the DOM.
+
+</p>
+</details>
