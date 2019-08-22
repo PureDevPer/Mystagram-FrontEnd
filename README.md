@@ -35,7 +35,9 @@ Front End for Instagram clone (GraphQL + Hooks)
 
 <details><summary><b>Apollo Boost</b></summary>
 <p>
+
 - https://github.com/apollographql/apollo-client/tree/master/packages/apollo-boost
+
 - ApolloClient is connected to your app
 
 </p>
