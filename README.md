@@ -4,6 +4,8 @@ Front End for Instagram clone (GraphQL + Hooks)
 
 ## Reading
 
+- React Toastify: https://www.npmjs.com/package/react-toastify
+
 <details><summary><b>Styled Components</b></summary>
 <p>
 
