@@ -52,3 +52,16 @@ https://reactjs.org/docs/fragments.html
 
 </p>
 </details>
+
+<details><summary><b>React Hooks</b></summary>
+<p>
+
+https://reactjs.org/docs/hooks-overview.html
+
+- `useState` is a Hook (we’ll talk about what this means in a moment). We call it inside a function component to add some local state to it. React will preserve this state between re-renders.
+- `useState` returns a pair: the current state value and a function that lets you update it. You can call this function from an event handler or somewhere else.
+
+- Array Destructuring: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Array_destructuring
+
+  </p>
+  </details>
