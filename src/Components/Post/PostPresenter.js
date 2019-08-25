@@ -4,6 +4,7 @@ import TextareaAutosize from 'react-autosize-textarea';
 import FatText from '../FatText';
 import Avatar from '../Avatar';
 import { HeartFull, HeartEmpty, Comment, Prev, Next } from '../Icons';
+import DotCarousel from '../DotCarousel';
 
 const Post = styled.div`
 	${props => props.theme.whiteBox};
@@ -55,7 +56,7 @@ const SlideButton = styled.div`
 	position: absolute;
 	top: 50%;
 	${props => (props.type === 'prev' ? 'left: 10px' : 'right: 10px')};
-	opacity: 1;
+	opacity: 0.7;
 `;
 
 const Button = styled.span`
@@ -64,6 +65,14 @@ const Button = styled.span`
 
 const Meta = styled.div`
 	padding: 15px;
+	position: relative;
+`;
+
+const MetaRow = styled.div`
+	position: absolute;
+	top: 20px;
+	left: 0px;
+	width: 100%;
 `;
 
 const Buttons = styled.div`
@@ -121,14 +130,23 @@ export default ({
 				files.map((file, index) => (
 					<File id={file.id} src={file.url} showing={index === currentItem} />
 				))}
-			<SlideButton type="prev" onClick={slidePrev}>
-				<Prev />
-			</SlideButton>
-			<SlideButton type="next" onClick={slideNext}>
-				<Next />
-			</SlideButton>
+			{files && files.length > 1 && (
+				<>
+					<SlideButton type="prev" onClick={slidePrev}>
+						<Prev />
+					</SlideButton>
+					<SlideButton type="next" onClick={slideNext}>
+						<Next />
+					</SlideButton>
+				</>
+			)}
 		</Files>
 		<Meta>
+			<MetaRow>
+				{files && files.length > 1 && (
+					<DotCarousel length={files.length} active={currentItem} />
+				)}
+			</MetaRow>
 			<Buttons>
 				<Button>{isLiked ? <HeartFull /> : <HeartEmpty />}</Button>
 				<Button>

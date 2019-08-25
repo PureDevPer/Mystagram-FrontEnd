@@ -5,6 +5,7 @@ export default {
 	maxWidth: '935px',
 	bgColor: '#FAFAFA',
 	blackColor: '#262626',
+	greyColor: '#DBDBDB',
 	darkGreyColor: '#999',
 	lightGreyColor: '#c7c7c7',
 	redColor: '#ED4956',
