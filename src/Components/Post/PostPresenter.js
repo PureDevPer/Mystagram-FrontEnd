@@ -11,6 +11,7 @@ import {
 	Next
 } from '../Icons';
 import DotCarousel from '../DotCarousel';
+import Time from '../TimeStamp';
 
 const Post = styled.div`
 	${props => props.theme.whiteBox};
@@ -96,7 +97,7 @@ const Timestamp = styled.span`
 	text-transform: uppercase;
 	opacity: 0.5;
 	display: block;
-	font-size: 12px;
+	font-size: 10px;
 	margin: 10px 0px;
 	padding-bottom: 10px;
 	border-bottom: ${props => props.theme.lightGreyColor} 1px solid;
@@ -194,7 +195,9 @@ export default ({
 					))}
 				</Comments>
 			)}
-			<Timestamp>{createdAt}</Timestamp>
+			<Timestamp>
+				<Time createdAt={createdAt} />
+			</Timestamp>
 			<Textarea
 				onKeyPress={onKeyPress}
 				placeholder={'Add a comment...'}
