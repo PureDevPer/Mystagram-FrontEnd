@@ -55,6 +55,16 @@ const PostContainer = ({
 		}
 	};
 
+	const onKeyPress = event => {
+		const { which } = event;
+		if (which === 13) {
+			event.preventDefault();
+			comment.setValue('');
+			addCommentMutation();
+		}
+		return;
+	};
+
 	return (
 		<PostPresenter
 			user={user}
@@ -72,6 +82,7 @@ const PostContainer = ({
 			slidePrev={slidePrev}
 			slideNext={slideNext}
 			toggleLike={toggleLike}
+			onKeyPress={onKeyPress}
 		/>
 	);
 };
