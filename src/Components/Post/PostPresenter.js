@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import TextareaAutosize from 'react-autosize-textarea';
 import FatText from '../FatText';
 import Avatar from '../Avatar';
-import { HeartFull, HeartEmpty, Comment } from '../Icons';
+import { HeartFull, HeartEmpty, Comment, Prev, Next } from '../Icons';
 
 const Post = styled.div`
 	${props => props.theme.whiteBox};
@@ -48,6 +48,14 @@ const File = styled.img`
 	background-position: center;
 	opacity: ${props => (props.showing ? 1 : 0)};
 	transition: opacity 0.5s linear;
+`;
+
+const SlideButton = styled.div`
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	${props => (props.type === 'prev' ? 'left: 10px' : 'right: 10px')};
+	opacity: 1;
 `;
 
 const Button = styled.span`
@@ -96,7 +104,9 @@ export default ({
 	likeCount,
 	createdAt,
 	newComment,
-	currentItem
+	currentItem,
+	slidePrev,
+	slideNext
 }) => (
 	<Post>
 		<Header>
@@ -111,6 +121,12 @@ export default ({
 				files.map((file, index) => (
 					<File id={file.id} src={file.url} showing={index === currentItem} />
 				))}
+			<SlideButton type="prev" onClick={slidePrev}>
+				<Prev />
+			</SlideButton>
+			<SlideButton type="next" onClick={slideNext}>
+				<Next />
+			</SlideButton>
 		</Files>
 		<Meta>
 			<Buttons>

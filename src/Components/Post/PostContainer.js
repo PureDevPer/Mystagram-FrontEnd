@@ -18,17 +18,23 @@ const PostContainer = ({
 	const [likeCountS, setLikeCount] = useState(likeCount);
 	const [currentItem, setCurrentItem] = useState(0);
 	const comment = useInput('');
-	const slide = () => {
+
+	const slideNext = () => {
 		const totalFiles = files.length;
 		if (currentItem === totalFiles - 1) {
-			setTimeout(() => setCurrentItem(0), 3000);
+			setCurrentItem(0);
 		} else {
-			setTimeout(() => setCurrentItem(currentItem + 1), 3000);
+			setCurrentItem(currentItem + 1);
 		}
 	};
-	useEffect(() => {
-		slide();
-	}, [currentItem]);
+	const slidePrev = () => {
+		const totalFiles = files.length;
+		if (currentItem === 0) {
+			setCurrentItem(totalFiles - 1);
+		} else {
+			setCurrentItem(currentItem - 1);
+		}
+	};
 
 	return (
 		<PostPresenter
@@ -44,6 +50,8 @@ const PostContainer = ({
 			setIsLiked={setIsLiked}
 			setLikeCount={setLikeCount}
 			currentItem={currentItem}
+			slidePrev={slidePrev}
+			slideNext={slideNext}
 		/>
 	);
 };
