@@ -10,6 +10,7 @@ const Post = styled.div`
 	${props => props.theme.whiteBox};
 	width: 100%;
 	max-width: 600px;
+	user-select: none;
 	margin-bottom: 25px;
 `;
 
@@ -115,7 +116,8 @@ export default ({
 	newComment,
 	currentItem,
 	slidePrev,
-	slideNext
+	slideNext,
+	toggleLike
 }) => (
 	<Post>
 		<Header>
@@ -148,7 +150,9 @@ export default ({
 				)}
 			</MetaRow>
 			<Buttons>
-				<Button>{isLiked ? <HeartFull /> : <HeartEmpty />}</Button>
+				<Button onClick={toggleLike}>
+					{isLiked ? <HeartFull /> : <HeartEmpty />}
+				</Button>
 				<Button>
 					<Comment />
 				</Button>
