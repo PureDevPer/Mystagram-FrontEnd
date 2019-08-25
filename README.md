@@ -67,3 +67,13 @@ https://reactjs.org/docs/hooks-overview.html
 
   </p>
   </details>
+
+<details><summary><b>React Router - withRouter</b></summary>
+<p>
+
+https://reacttraining.com/react-router/core/api/withRouter
+
+You can get access to the `history` object’s properties and the closest `<Route>'s match` via the withRouter higher-order component. withRouter will pass updated match, location, and history props to the wrapped component whenever it renders.
+
+  </p>
+  </details>
