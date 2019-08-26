@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import useInput from '../../Hooks/useInput';
 import PostPresenter from './PostPresenter';
-import { useMutation, useQuery } from 'react-apollo-hooks';
+import { useMutation } from 'react-apollo-hooks';
 import { TOGGLE_LIKE, ADD_COMMENT } from './PostQueries';
-import { ME } from '../../SharedQueries';
 import { toast } from 'react-toastify';
 
 const PostContainer = ({
@@ -22,7 +21,6 @@ const PostContainer = ({
 	const [likeCountS, setLikeCount] = useState(likeCount);
 	const [currentItem, setCurrentItem] = useState(0);
 	const [selfComments, setSelfComments] = useState([]);
-	const { data: meQuery } = useQuery(ME);
 	const comment = useInput('');
 	const [toggleLikeMutation] = useMutation(TOGGLE_LIKE, {
 		variables: { postId: id }
