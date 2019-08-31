@@ -13,6 +13,7 @@ import {
 } from '../Icons';
 import DotCarousel from '../DotCarousel';
 import Time from '../TimeStamp';
+import Loader from '../Loader';
 
 const Post = styled.div`
 	${props => props.theme.whiteBox};
@@ -132,6 +133,15 @@ const Caption = styled.div`
 	margin: 10px 0px;
 `;
 
+const Form = styled.form`
+	position: relative;
+`;
+
+const ExtendedLoader = styled(Loader)`
+	position: absolute;
+	top: 5px;
+`;
+
 export default ({
 	user: { username, avatar },
 	location,
@@ -147,7 +157,8 @@ export default ({
 	onKeyPress,
 	comments,
 	selfComments,
-	caption
+	caption,
+	commentLoading
 }) => (
 	<Post>
 		<Header>
@@ -216,12 +227,16 @@ export default ({
 			<Timestamp>
 				<Time createdAt={createdAt} />
 			</Timestamp>
-			<Textarea
-				onKeyPress={onKeyPress}
-				placeholder={'Add a comment...'}
-				value={newComment.value}
-				onChange={newComment.onChange}
-			/>
+			<Form>
+				{commentLoading && <ExtendedLoader size={16} />}
+				<Textarea
+					onKeyPress={onKeyPress}
+					placeholder={!commentLoading ? 'Add a comment...' : ''}
+					value={newComment.value}
+					onChange={newComment.onChange}
+					disabled={commentLoading}
+				/>
+			</Form>
 		</Meta>
 	</Post>
 );

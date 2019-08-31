@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
-import { Logo } from './Icons';
+import { Loading } from './Icons';
 
 const Animation = keyframes`
     0%{
@@ -14,14 +15,21 @@ const Animation = keyframes`
     }
 `;
 
-const Loader = styled.div`
+const LoaderContainer = styled.div`
 	animation: ${Animation} 1s linear infinite;
 	width: 100%;
 	text-align: center;
 `;
 
-export default () => (
-	<Loader>
-		<Logo size={36} />
-	</Loader>
+const Loader = ({ className, size = 36 }) => (
+	<LoaderContainer>
+		<Loading className={className} size={36} />
+	</LoaderContainer>
 );
+
+Loader.propTypes = {
+	className: PropTypes.string,
+	size: PropTypes.number
+};
+
+export default Loader;
