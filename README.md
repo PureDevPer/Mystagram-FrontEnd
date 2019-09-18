@@ -38,8 +38,11 @@ Front End for Instagram clone (GraphQL + Hooks)
 ## Reading
 
 <details><summary><b>React Toastify</b></summary>
+
 <p>
+
 - React Toastify: https://www.npmjs.com/package/react-toastify
+
 </p>
 </details>
 
