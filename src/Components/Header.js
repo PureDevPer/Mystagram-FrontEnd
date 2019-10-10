@@ -65,11 +65,16 @@ const HeaderLink = styled(Link)`
 
 export default withRouter(({ history }) => {
 	const search = useInput('');
-	const {loading, data } = useQuery(ME);
+	const { data, loading } = useQuery(ME);
+	//let dataUsername;
+	//if (data) {
+	//	dataUsername = data.me.username;
+	//}
 	const onSearchSubmit = e => {
 		e.preventDefault();
 		history.push(`/search?term=${search.value}`);
 	};
+	// console.log(dataUsername);
 	return (
 		<Header>
 			<HeaderWrapper>
@@ -94,12 +99,12 @@ export default withRouter(({ history }) => {
 					<HeaderLink to="/notifications">
 						<HeartEmpty />
 					</HeaderLink>
-					{loading ? (
+					{!loading && !data.me ? (
 						<HeaderLink to="/#">
 							<User />
 						</HeaderLink>
 					) : (
-						<HeaderLink to={data.me.username}>
+						<HeaderLink to={!loading ? data.me.username : ''}>
 							<User />
 						</HeaderLink>
 					)}
